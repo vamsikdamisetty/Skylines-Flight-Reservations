@@ -1,0 +1,40 @@
+Run this in database before running the client.
+
+
+
+create table Flight (flightId number primary key,fromCity varchar2(10),toCity varchar2(10),timeD varchar2(10),  
+fare number(10,3),totalFare number(10,3) , availableSeats number(3) );
+
+insert into Flight values(1,'PUNE','CHENNAI','18:00',4000,4000*1.18,50);
+insert into Flight values(2,'PUNE','MUMBAI','08:30',2000,2000*1.18,50);
+insert into Flight values(3,'PUNE','DELHI','01:20',6500,6500*1.18,50);
+insert into Flight values(4,'PUNE','BENGALORE','00:40',3500,3500*1.18,50);
+
+insert into Flight values(5,'CHENNAI','PUNE','12:50',3800,3800*1.18,50);
+insert into Flight values(6,'CHENNAI','MUMBAI','22:45',5350,5350*1.18,50);
+insert into Flight values(7,'CHENNAI','DELHI','04:15',7200,7200*1.18,50);
+insert into Flight values(8,'CHENNAI','BENGALORE','05:40',2900,2900*1.18,50);
+
+insert into Flight values(9,'MUMBAI','PUNE','17:20',2450,2450*1.18,50);
+insert into Flight values(10,'MUMBAI','CHENNAI','13:35',5000,5000*1.18,50);
+insert into Flight values(11,'MUMBAI','DELHI','03:10',6350,6350*1.18,50);
+insert into Flight values(12,'MUMBAI','BENGALORE','23:40',3750,3750*1.18,50);
+
+insert into Flight values(13,'DELHI','PUNE','08:50',6250,6250*1.18,50);
+insert into Flight values(14,'DELHI','CHENNAI','21:25',7150,7150*1.18,50);
+insert into Flight values(15,'DELHI','MUMBAI','14:30',5900,5900*1.18,50);
+insert into Flight values(16,'DELHI','BENGALORE','09:25',4500,4500*1.18,50);
+
+insert into Flight values(17,'BENGALORE','PUNE','23:10',3800,3800*1.18,50);
+insert into Flight values(18,'BENGALORE','CHENNAI','18:20',3100,3100*1.18,50);
+insert into Flight values(19,'BENGALORE','MUMBAI','15:05',3800,3800*1.18,50);
+insert into Flight values(20,'BENGALORE','DELHI','19:40',4700,4700*1.18,50);
+
+create table Booking(bookingID number primary key, flightId number , userId number , status varchar(1),name varchar(20),age varchar(3),gender varchar(1), FOREIGN KEY (flightId) references Flight(flightId));
+
+create table Users(userId Number primary key,name varchar2(15),email varchar2(20),username varchar2(15),password varchar2(15),
+phoneNum number(10));
+
+commit;
+
+

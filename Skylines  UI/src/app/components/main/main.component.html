@@ -1,0 +1,20 @@
+
+<ul>
+    <div>
+       <li style="margin-right: 1cm; margin-left: 0.5cm;"> <img src="../assets/images/skylinesLogo3.png"></li> 
+       <li ><a routerLink = "profile"><i class="fa fa-user"  style="margin-top: 3px; margin-right: 7px;"></i>  <b> Your Profile</b> </a>
+        </li> 
+          
+    </div>
+    <div id="rightnav">
+      <li ><a routerLink = "book"><i class="fa fa-search" style="margin-top: 3px; margin-right: 8px;"></i>  <b>Search and Reserve</b></a></li>
+      <li ><a routerLink = "bookings"><i class="fa fa-bars"  style="margin-top: 3px;"></i> &nbsp;<b>Check your Bookings</b></a></li>
+      
+      <li style="margin-right: 3px;" ><a  class="btn btn-danger" (click) = "logout()"><b style="color: white;">Log Out</b></a></li>
+
+        
+
+    </div>
+</ul>
+    
+<router-outlet></router-outlet>

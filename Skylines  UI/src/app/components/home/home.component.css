@@ -1,0 +1,49 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    height: 100px;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 37px 43px;
+    font-size: 22px;
+    text-decoration: none;
+    }
+
+  
+  li a:hover:not(.active) {
+    color: #ec5b53;
+  }
+
+  
+  
+  .active {
+    background-color: #ec5b53;
+    
+  }
+
+  #rightnav
+  {
+    float:right
+  }
+
+  img{
+      height: 100px;
+      width: 180px;
+      padding: 0px;
+      margin-left: 17px;
+      align-self: center;
+      margin-top: -16px;
+      zoom: 1.4;
+  }

@@ -1,0 +1,171 @@
+<!-- <div class="demo">
+    <h1>Angular Get Selected Option Value</h1>
+    <h2><span>Select a day:</span></h2>
+    <select (change)="selectChangeHandler($event)">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+    </select>
+
+    <select (change)="selectChangeHandler2($event)">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+    </select>
+    <p><span>You selected: </span><b>{{selectedDay}} <br> {{selectedDay2}}</b></p>
+  </div> -->
+
+
+<div class="demo">
+
+  <div style="margin-left: 350px;">
+    <label>From:</label>
+
+    <select style="margin-left: 10px; " id="from" (change)="selectChangeHandler($event)">
+      <option value="">select city</option>
+      <option value="PUNE">PUNE</option>
+      <option value="MUMBAI">MUMBAI</option>
+      <option value="DELHI">DELHI</option>
+      <option value="CHENNAI">CHENNAI</option>
+      <option value="BENGALORE">BENGALORE</option>
+    </select>
+
+    <i class="fa fa-plane" style="margin-left: 120px; margin-right: 100px; font-size:60px; color: black; "
+      aria-hidden="true"></i>
+      
+
+    <label>Destination:</label>
+    <select style="margin-left: 10px;" id="to" (change)="selectChangeHandler2($event)">
+      <option value="">select city</option>
+      <option value="PUNE">PUNE</option>
+      <option value="MUMBAI">MUMBAI</option>
+      <option value="DELHI">DELHI</option>
+      <option value="CHENNAI">CHENNAI</option>
+      <option value="BENGALORE">BENGALORE</option>
+    </select>
+
+    <button class="button3" type="submit" (click)="searchFlight()">Search Flight</button>
+
+  </div>
+  <br><br>
+
+  <div class="box2" *ngIf="searchDiv">
+    <marquee scrollamount="20" scrolldelay="-50">
+      <p style="color: red; font-size: xxx-large; text-align: center; margin-top: 30px;">Please select the cities to get
+        the Available flights</p>
+    </marquee>
+
+  </div>
+
+  <div class="box" style="width: 50%; height: 400px; margin-left: 500px; margin-top: 50px;  " *ngIf="f">
+
+    <div class="flightDiv">
+      <label> Flight Code : &nbsp;&nbsp;&nbsp;&nbsp; {{flight.flightId}} </label><br>
+      <label> From City : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{flight.from}} </label><br>
+      <label> Destination : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{flight.to}} </label><br>
+      <label> Departure :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{flight.timeD}} </label><br>
+      <label> Fare : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{flight.fare}}  </label><br>
+      <label> Available Seats : {{flight.availableSeats}}</label><br>
+      <br>
+      <button class="button3" type="submit" style="margin-left: 0px;" (click)="bookFlight()">Book</button>
+
+    </div>
+
+    
+    <div class="flightDiv2" >
+
+        <img src="assets/images/skylinesLogo3.png" style="">
+    </div>
+  </div>
+
+  <br> <br><br><br>
+  <div class="box" *ngIf="addPass">
+
+    <form [formGroup]="addForm" (ngSubmit)="addPassenger()" style="border:1px solid #ccc">
+      <div class="container">
+        <h1>Please Enter Passenger Details</h1>
+
+        <hr>
+
+
+        <div class="form-group">
+          <div class="form-group row">
+            <label for="firstName" class="col-lg-4 text-right font-weight-bold">
+              First Name:
+            </label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="firstName" autofocus/>
+              <div *ngIf="submitted && addForm.controls.firstName.errors">
+                <div *ngIf="submitted && addForm.controls.firstName.errors.required" class="text-danger">
+                  First Name is required...
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastName" class="col-lg-4 text-right font-weight-bold">
+              Last Name:
+            </label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="lastName" />
+              <div *ngIf="submitted && addForm.controls.lastName.errors">
+                <div *ngIf="submitted && addForm.controls.lastName.errors.required" class="text-danger">
+                  Last Name is required...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="age" class="col-lg-4 text-right font-weight-bold">
+              Age:
+            </label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="age" />
+              <div *ngIf="submitted && addForm.controls.age.errors">
+                <div *ngIf="submitted && addForm.controls.age.errors.required" class="text-danger">
+                  Age is required...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="age" class="col-lg-4 text-right font-weight-bold" style="padding: 15px;">
+              Gender :
+            </label>
+            <div class="col-lg-8">
+              <select style="margin-left: 10px; margin-right: 150px; width:fit-content ; height: 80px; " id="from"
+                (change)="selectChangeHandler3($event)" class="form-control" formControlName="gender">
+                <option value="">select gender </option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Others</option>
+
+              </select>
+              <div *ngIf="submitted && addForm.controls.gender.errors">
+                <div *ngIf="submitted && addForm.controls.gender.errors.required" class="text-danger">
+                  Gender is required...
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <button class="button3 form-control" style="width: fit-content; margin-left: auto;" type="submit">Add
+            Passenger</button>
+
+
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

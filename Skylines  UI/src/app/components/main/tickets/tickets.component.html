@@ -1,0 +1,84 @@
+
+
+<div class="div1">
+    <br />
+    <h1 style="text-align: center;  font-size: 40px; font-weight: bold;">Your Bookings</h1>
+    <br />
+
+        <div *ngIf = "booked" class="div2">
+            <h1 style="text-align: center;">
+                Please make any Reservation !
+            </h1>
+        </div>    
+
+
+        <div class="box" *ngFor="let ticket of bookings">
+
+
+            <div class="box1">
+
+                <table>
+                    <tr>
+                        <th> Booking Id </th>
+                        <td> {{ticket.bookingId}} </td>
+                    </tr>
+                    <tr>
+                        <th> Travelling From </th>
+                        <td> {{ticket.flightData.from}} </td>
+                    </tr>
+                    <tr>
+                        <th> Travelling To </th>
+                        <td> {{ticket.flightData.to}} </td>
+                    </tr>
+                    <tr>
+                        <th> Departures at </th>
+                        <td> {{ticket.flightData.timeD}} </td>
+                    </tr>
+
+
+                </table>
+
+
+
+            </div>
+
+            <div class="box2">
+
+                <h2 style="color: #0b399b; font-family: cursive; font-size: 60px; margin-left: 35px; margin-top: -10px; overflow-y: hidden;"> Skylines </h2>
+                <label *ngIf= "ticket.status == 'B'"><label style="color: green; margin-top: 20px; margin-left: 0;">Status Booked</label> </label>
+                <label *ngIf= "ticket.status == 'C'"> <label style="color: red; margin-top: 60px;  font-size: 45px;">Ticket Cancelled </label> </label> <br>
+                <button *ngIf= "ticket.status == 'B'" class="button3" (click)="cancelFlight(ticket.bookingId,ticket.flightData.flightId)">Cancel Reservation </button>
+              
+
+            </div>
+
+
+            <div class="box3">
+
+                <table>
+
+
+                    <tr>
+                        <th> Name </th>
+                        <td> {{ticket.name}} </td>
+                    </tr>
+
+
+                    <tr>
+                        <th> Age </th>
+                        <td> {{ticket.age}} </td>
+                    </tr>
+                    <tr>
+                        <th> Gender </th>
+                        <td> {{ticket.gender}} </td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+
+        </div>
+  
+</div>

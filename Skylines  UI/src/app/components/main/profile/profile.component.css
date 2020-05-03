@@ -1,0 +1,29 @@
+.full {
+    background-color: rgba(236,91,83,0.8);
+    background-size: contain;
+  }
+
+.body{
+
+    backface-visibility: hidden;
+    
+    padding: 50px;
+    background:  rgba(255,255,255,.6);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    margin-bottom: 30px;
+    font-size: 40px;
+    height: 400px;
+   
+}
+
+th{
+    color: maroon;
+}
+
+th,td{
+  width: 13cm;
+    height: 2cm;
+    border: 3px solid black;
+    text-align: center;
+
+}
